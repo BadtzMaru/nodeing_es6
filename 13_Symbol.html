@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. Symbol是什么? 在es6中新增的数据类型
+			// js中的数据类型: 基本数据类型 : Number String Boolean undefined Symbol
+			//                引用数据类型 : Object
+
+			// 2. Symbol做什么的? 用来表示第一无二的值
+			// 3. 为什么会新增一种这样的类型
+			// 别人给你一个对象 jQuery
+			// let obj = {
+			// 	name: 'xiaoqiang',
+			// 	html: function () {
+			// 		console.log(1);
+			// 	},
+			// };
+			// 拿到对象后给这个对象增加属性和方法
+			// obj.name = 'nodeing';
+			// obj.html = function () {
+			// 	console.log(2);
+			// };
+			// obj.html();
+
+			// 需求: 让新增的属性和方法不和前面冲突
+			let name = Symbol('name');
+			let html = Symbol('html');
+			let obj2 = {
+				[name]: 'xiaoli',
+				[html]: function () {
+					console.log(3);
+				},
+			};
+			obj2[Symbol()] = 'nodeing';
+			console.log(obj2);
+
+			// 怎么去区分Symbol
+			console.log(name, html);
+		</script>
+	</body>
+</html>

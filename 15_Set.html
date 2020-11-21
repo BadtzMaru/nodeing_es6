@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. Set是什么?在es6中新增的一种数据结构,类似数组,里面的元素是不重复的
+			let st = new Set([1, 2, 3, 4, 4, 4, 4, '2']);
+			console.log(st);
+
+			// 2. 属性
+			console.log(st.size);
+
+			// 3. 相关方法
+			// add 增加一种元素
+			st.add(4);
+			console.log(st);
+
+			// delete 删除一种元素
+			st.delete(2);
+			console.log(st);
+
+			// has 判断是否存在某个元素
+			console.log(st.has(1));
+			console.log(st.has(5));
+
+			// 清空元素
+			st.clear();
+			console.log(st);
+
+			st.add([1, 2, 3]);
+
+			// 转化成数组
+			let arr = Array.from(st);
+			console.log(arr);
+
+			// 和循环遍历的方法
+
+			// keys
+			let st2 = new Set([2, 3, '4', 5]);
+			console.log(st2.keys()); // SetIterator Set迭代器
+			console.log(st2.values()); // SetIterator Set迭代器
+
+			for (let a of st2.keys()) {
+				console.log(a);
+			}
+
+			// Set keys方法和values方法行为是一致的
+
+			console.log(st2.entries()); // 键值对
+
+			for (let item of st2.entries()) {
+				// entries 是键值对,在Set这种结构中可以认为没有键名,键和值是相等的
+				console.log(item); // 每次输出的是一个数组,数组里面的元素是相等的
+			}
+
+			st2.forEach((v, k, s) => {
+				console.log(v, k, s);
+			});
+			console.log(typeof st2); // object
+		</script>
+	</body>
+</html>

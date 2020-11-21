@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 默认参数
+			// es5中
+			// function fn(a, b) {
+			// 	if (typeof b === 'undefined') {
+			// 		b = 'nodeing';
+			// 	}
+			// 	return a + b;
+			// }
+			// console.log(fn('hello', ''));
+
+			// es6中,支持默认参数
+			// function fn2(a, b = 'nodeing') {
+			// 	return a + b;
+			// }
+			// console.log(fn2('hello', ''));
+
+			// 2. rest参数
+			function fn3(...arg) {
+				console.log(arg);
+			}
+			fn3(1, 2, 3);
+			// 注意: 和普通参数混合起来使用的时候,需要放到最后
+		</script>
+	</body>
+</html>

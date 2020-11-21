@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			let arr = [1, 2, 3];
+			console.log(...arr);
+			// 扩展运算符,把数组给展开,用逗号把每个元素隔开
+
+			function fn(a, b, c) {
+				console.log(a, b, c);
+			}
+			// 掌握扩展运算符的关键: 找准一一对应关系
+			fn(...arr);
+
+			function fn2(a, b, c, d, e, f, g) {
+				console.log(a, b, c, d, e, f, g);
+			}
+			fn2(1, 2, ...arr, 3);
+		</script>
+	</body>
+</html>

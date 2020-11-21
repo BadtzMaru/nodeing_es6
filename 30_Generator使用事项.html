@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. generator代码内部不会马上执行,需要调用next方法的时候才去执行
+
+			function* gen() {
+				console.log(1);
+				yield '状态1';
+				console.log(2);
+				let result = yield '状态2';
+				console.log(result);
+				yield '状态3';
+			}
+			let it = gen(); // 返回的是一个可迭代对象,这个可迭代对象内部有next方法
+			// it.next(); // 这个next方法执行完成后会返回一个对象 {value: xxx,done: false}
+			// it.next();
+			// 2. 遇到yield关键字会暂停,再次调用next方法才会继续执行
+
+			// 3. next方法可以传入一个参数,这个参数是上一个yield执行后的返回值
+
+			// it.next('nodeing'); // 内部的状态是在调用了next方法后拿到的
+
+			// 4. for ... of 循环 it
+			// for (let a of it) {
+			// 	console.log(a);
+			// }
+
+			// 5. 对象是没有iterator接口,可以手动添加一个
+			let obj = {};
+			obj[Symbol.iterator] = gen;
+			for (let i of obj) {
+				console.log(i);
+			}
+		</script>
+	</body>
+</html>

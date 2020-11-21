@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// es2018
+			// 1. 扩展运算符
+			let { a, b, ...c } = { c: 1, b: 2, a: 3, d: 4 };
+			console.log(a, b, c);
+
+			// 2. 新增的方法 Object.is 判断两个值是否相等,行为类似于 ===
+			let res = Object.is({}, {});
+			console.log(res);
+			// 修复 NaN 不等于自己的问题
+			console.log(NaN === NaN); // false
+			console.log(Object.is(NaN, NaN)); // true
+
+			// 合并对象
+			let obj1 = { a: 1 },
+				obj2 = { b: 2 },
+				obj3 = { c: 3 };
+			console.log(Object.assign(obj1, obj2, obj3));
+		</script>
+	</body>
+</html>

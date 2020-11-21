@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// Map的相关方法
+
+			// 1. set 设置键值对
+			let mp = new Map();
+			mp.set('a', 111);
+			mp.set({ a: 1 }, 222);
+			console.log(mp);
+
+			// 2. get 根据key获取到value
+			console.log(mp.get('a'));
+			console.log(mp.get({ a: 1 })); // undefined
+
+			// 3. delete删除key
+			mp.delete('a');
+			console.log(mp);
+
+			let mp2 = new Map([
+				['cc', 111],
+				['bb', 222],
+			]);
+			// 4. has判断是否有这个key
+			console.log(mp2.has('cc'));
+			console.log(mp2.has('dd'));
+
+			// 5. clear清空
+			// mp2.clear();
+			// console.log(mp2);
+
+			// 6. keys 打出所有键的集合
+			console.log(mp2.keys());
+			for (let a of mp2.keys()) {
+				console.log(a);
+			}
+
+			// 7. values 打出所有values的集合
+			for (let v of mp2.values()) {
+				console.log(v);
+			}
+
+			for (let item of mp2.entries()) {
+				console.log(item);
+			}
+
+			mp2.forEach((v, k, m) => {
+				console.log(v, k, m);
+			});
+		</script>
+	</body>
+</html>

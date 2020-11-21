@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 关于this,箭头函数没有自己的this,它内部的this,并不是调用的时候指向的对象,而是定义时候指向的this
+
+			// document.onclick = function () {
+			// 	// 谁调用指向谁
+			// 	console.log(this);
+			// };
+
+			// document.onclick = () => {
+			// 	// 在定义这个箭头函数的时候,在windows环境下定义的,所以指向window
+			// 	console.log(this);
+			// };
+
+			// document.onclick = function () {
+			// 	// 外层的这个function,这个环境中this指向document
+			// 	let f = () => {
+			// 		console.log(this);
+			// 	};
+			// 	f();
+			// };
+
+			// 箭头函数不能用于构造函数,意味着不能用new 关键字调用
+			// let F = () => {};
+			// new F();//  报错 F is not a constructor
+
+			// function fn() {
+			// 	console.log(arguments); // arguments内置对象
+			// }
+			// fn(1, 2, 3);
+
+			let f3 = (...rest) => {
+				// console.log(arguments); // 报错 arguments is not defined
+				console.log(rest);
+			};
+			f3(1, 2, 3);
+
+			// 4. 箭头函数不能调用yield关键字,因此箭头函数不能作为Generator函数
+		</script>
+	</body>
+</html>

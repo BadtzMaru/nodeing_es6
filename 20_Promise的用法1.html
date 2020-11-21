@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 把异步代码放到Promise里面
+			function AsyncFn() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						// 模拟加载图片
+						console.log('图片加载成功');
+						resolve();
+					}, 1000);
+				});
+			}
+			console.log(1);
+			// then里面的第一个参数是一个函数块,这个函数块被传给了Promise里面的resolve
+			AsyncFn().then(() => {
+				// 图片加载成功以后需要执行的业务逻辑
+				console.log('图片已经被添加到body中');
+			});
+			console.log(3);
+			console.log(4);
+
+			// Promise对象只要被创建,里面的异步代码就会马上执行
+		</script>
+	</body>
+</html>

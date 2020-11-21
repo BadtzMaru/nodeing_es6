@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="btn">抽奖</button>
+		<input type="text" id="ipt" />
+		<script>
+			// 限制抽奖次数, 状态机应用,限制抽奖次数5,点击一次抽奖按钮,抽奖机会少一次
+
+			function draw(count) {
+				// 抽奖 0 ~ 30 的随机数
+				let price = Math.floor(Math.random() * 31);
+				let index = 0;
+				timmer = setInterval(() => {
+					index++;
+					ipt.value = index;
+					if (index === price) {
+						clearInterval(timmer);
+						console.log(`您还剩下${count - 1}次机会`);
+					}
+				}, 50);
+			}
+
+			function* gen(count) {
+				while (count > 0) {
+					yield draw(count);
+					count--;
+				}
+			}
+
+			let start = gen(5);
+			let timmer = null;
+			btn.onclick = function () {
+				clearInterval(timmer);
+				// 点击一次去运行一次next方法
+				start.next();
+			};
+		</script>
+	</body>
+</html>

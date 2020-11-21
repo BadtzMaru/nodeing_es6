@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="btn">获取数据</button>
+		<span id="span"></span>
+		<script>
+			// Promise all 方法传入一个数组
+			let arr = [
+				'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1419628337,1603242413&fm=26&gp=0.jpg',
+				'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605886527992&di=2bf5b5a100c2e6837b3c387a0c6440bb&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D580e773405f431adbcd243317b37ac0f%2F50f2f9dde71190ef9c7f0079c71b9d16fffa60dc.jpg',
+			];
+			function AsyncLoadImg(url) {
+				return new Promise((resolve, reject) => {
+					// 执行加载图片,图片对象到load事件,error事件
+					// 创建出一个图片对象
+					let oImg = new Image();
+					oImg.src = url;
+					oImg.onload = () => {
+						resolve(oImg);
+					};
+					oImg.onerror = () => {
+						// 手动抛出一个错误 new Error() 自定义一个错误信息
+						let error = new Error('图片信息没有加载成功');
+						reject(error);
+					};
+				});
+			}
+			btn.onclick = () => {
+				// 里面传入一个数组,数组中每一个元素就是一个promise实例
+				Promise.all([AsyncLoadImg(arr[12]), AsyncLoadImg(arr[1])])
+					.then((result) => {
+						console.log(result);
+						for (let i = 0; i < result.length; i++) {
+							console.log(result[i]);
+						}
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			};
+		</script>
+	</body>
+</html>

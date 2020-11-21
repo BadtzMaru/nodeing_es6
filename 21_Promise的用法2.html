@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			function AsyncFn1() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						// 模拟加载图片
+						console.log('1 -> 图片加载成功');
+						resolve();
+					}, 1000);
+				});
+			}
+
+			function AsyncFn2() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						// 模拟ajax请求
+						console.log('2 -> 模拟ajax请求');
+						resolve();
+					}, 3000);
+				});
+			}
+
+			function AsyncFn3() {
+				return new Promise((resolve, reject) => {
+					setTimeout(() => {
+						// 模拟查询用户信息
+						console.log('3 -> 模拟查询用户信息');
+						resolve();
+					}, 2000);
+				});
+			}
+
+			// AsyncFn1();
+			// AsyncFn2();
+			// AsyncFn3();
+
+			AsyncFn1()
+				.then(() => {
+					// 写图片加载成后的逻辑,直接插入到页面中
+					console.log('图片添加到body中');
+					return AsyncFn2();
+				})
+				.then(() => {
+					console.log('处理ajax信息');
+					return AsyncFn3();
+				})
+				.then(() => {
+					console.log('处理登陆信息');
+				});
+		</script>
+	</body>
+</html>

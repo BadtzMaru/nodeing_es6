@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 对象的简写
+			// es5 中
+			let name = 'xiaoqiang',
+				age = 10;
+			let obj = {
+				name: name,
+				age: age,
+			};
+
+			//es6中,key和value如果相同的,可以简写
+			let obj2 = { name, age };
+			console.log(obj, obj2);
+
+			// 方法的简写
+			// es5
+			let obj3 = {
+				showName: function () {
+					console.log(name);
+				},
+			};
+			// es6中
+			let obj4 = {
+				showName() {
+					console.log(name);
+				},
+			};
+			obj3.showName();
+			obj4.showName();
+
+			// 2. 属性表达式
+
+			// es5中, key是固定不变的
+			let obj5 = { name: 'xxx', age: 18 };
+			// es6中,支持key变化
+			let a = 'name',
+				b = 'age';
+			let obj6 = {
+				[a]: 'xxx',
+				[b + '1']: 18,
+			};
+			console.log(obj6);
+		</script>
+	</body>
+</html>

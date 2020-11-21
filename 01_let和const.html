@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. let是什么? 定义变量的关键字 和 var差不多
+			// let a = 10;
+			// console.log(a);
+
+			// 2. 块级作用域 {}
+			{
+				let b = 10;
+			}
+			// console.log(b);  // 报错 b is not defined
+
+			// for (var i = 0; i < 6; i++) {
+			// 	document.write(i);
+			// }
+			// console.log(i);
+
+			// for (let i = 0; i < 6; i++) {
+			// 	document.write(i);
+			// }
+			// console.log(i); // i is not defined
+			// 块级作用域: 防止污染全局变量
+
+			// 2. const 命令是是什么? 定义常量的关键字.常量: 不会变化的量,有些时候定义的变量是不允许被修改的
+
+			let path = '/etc/xxx';
+			const PI = 3.1415926;
+			// PI = 3.14;  // 报错 Assignment to constant variable
+			// 注意1: 常量不能被修改,只要修改就会报错
+			// 注意2: 定义常量的时候必须要赋值
+			//  const PATH; // 报错 Missing initializer in const declaration
+
+			// 注意3: let 和 const 不要重复定义
+
+			// 注意4: const 也是在块级作用域中生效
+			{
+				const PI = 3.14;
+			}
+
+			// 注意5: const 不可以被修改,如果是一个对象,对象的引用不能被修改
+			const obj = {};
+			obj.age = 20;
+			console.log(obj);
+			// 用另一个对象去覆盖原来的对象,引用被改变了,报错
+			// obj = {}; // 报错 Assignment to constant variable
+		</script>
+	</body>
+</html>

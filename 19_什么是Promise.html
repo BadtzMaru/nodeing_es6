@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// Promise 是什么?
+			// Promise是es6中的异步编程的解决方案,在代码中表现为一个对象,可以通过构造函数Promise来实例化,有了Promise对象,可以将异步操作以同步的流程表达出来
+			console.dir(Promise);
+
+			// 如何使用
+			// 注意: resolve 和 reject 都是函数块
+			let p = new Promise((resolve, reject) => {
+				// 这里写异步代码,加载网络图片,使用ajax请求
+				setTimeout(() => {
+					// 在resolve被调用之前会有一堆代码
+					console.log('执行异步代码1');
+					resolve();
+				});
+			});
+
+			// Promise 把异步代码放到Promise里面
+
+			// Promise对象有三种状态: pending fulfilled rejected
+
+			// pending -> fulfilled
+			// pending -> rejected
+			// resolve 这是函数块在异步代码执行成功后的回调函数
+			// reject 这是函数块在异步代码执行失败后的回调函数
+
+			// Promise是一个构造函数,一种异步编程坚决方案
+		</script>
+	</body>
+</html>

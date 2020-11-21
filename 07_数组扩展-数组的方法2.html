@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. copyWithin 在数组的内部去拷贝一些元素放在数组的指定位置
+			let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+			// 第二个参数和第三个参数就是我们要拷贝的元素的起始位置
+			// arr.copyWithin(0, 3, 5); // 把下标从3到4之间元素拷贝到下标为0的位置
+			// console.log(arr);
+
+			// 2. fill ,用一个数组去填充整个数组,通常用来初始化数组
+			let arr2 = [1, 2, 3];
+			// arr2.fill(0);
+			// console.log(arr2);
+
+			// 3. entries,keys,values 配合for...of结构去遍历数组
+			let arr3 = [4, 5, 6, 7, 8];
+			// 打印出这个数组的所有下标
+			// for (let index of arr3.keys()) {
+			// 	console.log(index);
+			// }
+			// 打印出值
+			// for (let item of arr3.values()) {
+			// 	console.log(item);
+			// }
+			// 打印出下标和值 entries
+			// for (let item of arr3.entries()) {
+			// 	console.log(item);
+			// }
+
+			// 4. find 和 findIndex
+			let arr4 = [1, 2, 3, 4, 5, 6];
+			// find查找数组里面的元素,返回第一个符合条件的元素
+			// let v = arr4.find(function (v, i, a) {
+			// 	// console.log(v, i, a);
+			// 	return v > 3;
+			// });
+			// console.log(v);
+			// findIndex的用法和find方法一样,返回的是下标
+
+			// 5. includes 检查元素是否在数组里面
+			// let arr5 = [1, 2, 3];
+			// console.log(arr5.includes(3));
+			// console.log(arr5.includes(4));
+		</script>
+	</body>
+</html>

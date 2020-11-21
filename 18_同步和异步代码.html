@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 同步代码
+			// console.log(1);
+			// console.log(2);
+
+			// 2. 异步代码
+			// console.log(0);
+			// setTimeout(() => {
+			// 	console.log(1);
+			// }, 1000);
+			// console.log(2);
+
+			// 3. 异步回调函数嵌套,回调地狱
+			setTimeout(() => {
+				console.log(1);
+				setTimeout(() => {
+					console.log(2);
+					setTimeout(() => {
+						console.log(3);
+					});
+				});
+			});
+
+			// 异步读取文件
+
+			// 需要一种写法,让异步回调函数嵌套写起来更直观,看起来像是同步代码
+
+			// Promise
+		</script>
+	</body>
+</html>

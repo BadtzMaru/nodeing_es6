@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 数组的结构赋值 [ ] = [ ] 赋值符号两边是数组,就叫做数组的结构赋值
+			// let [a, b] = [1, 2];
+			// console.log(a, b);
+
+			// 1. 需求: 交换两个变量的内容
+			// let x = 10,
+			// 	y = 20;
+			// [x, y] = [y, x];
+			// console.log(x, y);
+
+			// 注意: 1. 解构不成功的时候,值为undefined
+			// let [x, y] = [10];
+			// console.log(x, y); // 10 ,undefined
+
+			// 注意: 2. 可以设置默认值
+			// let [a, b = 20] = [10];
+			// console.log(a, b);
+
+			// 注意3: 可以使用...(扩展运算符),值比变量多的时候
+			// let [a, b, ...c] = [1, 2, 3, 4, 5, 6];
+			// console.log(a, b, c);
+
+			// 2. 对象的结构赋值 { } = { } 赋值符号左右两边是对象,叫做对象的结构赋值
+			// let = { a, b } = { c: 30, b: 20, a: 'hello' };
+			// console.log(a, b);
+
+			// 注意1: 对象的结构赋值找一一对应关系是根据key ( {key: value} )
+			// 注意2: 如果左边的对象key和value是同名的,可以简写 {a: a,b: b} = {a,b}
+
+			// let { a: m, b: n } = { a: 'hello', b: 'nodeing' };
+			// console.log(m, n);
+
+			// 注意3: 对象的解构赋值根据key来找对应关系(不在乎顺序),数组的对应关系根据下标(注意顺序)
+			// 注意4: 对象的解构赋值也可以设置默认值
+			// let { x, y = 20 } = { x: 10 };
+			// console.log(x, y);
+
+			// 注意5: 对象解构和数组解构是可以嵌套的
+			// let [a, [b, c], d] = [1, [2, 3], 4];
+			// console.log(a, b, c, d);
+
+			let obj = { p: ['hello', { y: 'world' }] };
+			let {
+				p,
+				p: [x, { y }],
+			} = obj;
+			console.log(p, x, y);
+		</script>
+	</body>
+</html>

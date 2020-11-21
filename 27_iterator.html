@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// Iterator 又叫迭代器,它是一种接口,为各种不同的数据结构提供统一的访问机制
+			// 在编程中接口表现出来的就是一段代码
+
+			// 一种数据结构部署了Iterator接口,就可以遍历(可以被迭代) ,就是一次去处理数据结构中的每一个成员
+			// 关注的重点: 可以依次去处理数据结构中每个成员
+			let arr = [1, 2, 3];
+			function Iterator(arr) {
+				// 用一个计数器来记录现在处理到哪里了
+				let index = 0;
+				return {
+					next: () => {
+						// 当index < arr.length
+						if (index < arr.length) {
+							return { value: arr[index++], done: false };
+						} else {
+							return { value: undefined, done: true };
+						}
+					},
+				};
+			}
+
+			// 只要调用了这个Iterator接口,就可以去依次处理成员
+			let it = Iterator(arr);
+			console.log(it);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+			console.log(it.next().value);
+
+			// 总结: 遍历操作,依次去处理数据结构中的成员
+		</script>
+	</body>
+</html>

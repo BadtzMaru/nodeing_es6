@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 什么是Map? 也是es6中新增的一种数据结构,类似于对象
+			let mp = new Map([
+				['a', 1],
+				['b', 2],
+				['b', 3],
+			]);
+			console.log(mp);
+
+			// size表示长度
+			console.log(mp.size);
+			console.log(typeof mp); // object
+
+			// 2. 为什么会有Map这种数据结构?
+			// 在对象中,属性名字都必须是字符串,如果有其他类型就不行
+			// let a  = {{a:1}:2}; // 报错 Unexpected token '{'
+			let k1 = { a: 1 };
+			let k2 = { b: 2 };
+			// 把属性名做成一个对象
+			let obj = {
+				[k1]: '11',
+				[k2]: '22',
+			};
+			console.log(obj); // {[object Object]: "22"}
+
+			// Map是为了解决对象的属性名不能使用对象等值
+			let mp2 = new Map([[{ a: 1 }, 'sss']]);
+			console.log(mp2);
+			console.log(Array.from(mp2));
+
+			// Map的相关方法
+
+			// set(key,value)
+			// get(key)
+			// delete(key)
+			// has(key)
+			// clear()
+		</script>
+	</body>
+</html>

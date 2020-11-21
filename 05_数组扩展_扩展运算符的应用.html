@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 复制数组
+			// es5 中,直接复制的后果
+			let arr = [1, 2, 3];
+			// let arr2 = arr; // arr和arr2产生引用关系
+			// arr2.push(4);
+			// console.log(arr);
+
+			// 在es5中选用concat方法来复制
+			// let arr2 = arr.concat();
+			// arr2.push(4);
+			// console.log(arr, arr2);
+
+			// 在es6中的简便方法
+			// let arr2 = [...arr];
+			// arr2.push(4);
+			// console.log(arr, arr2);
+
+			// 2. 合并数组
+			// let arr4 = [4, 5, 6];
+			// console.log([...arr, ...arr4]); // arr和arr4合并
+
+			// 3. 生成一个数组
+			// let [a, b, ...rest] = [1, 2, 3, 4, 5, 6, 7, 8];
+			// console.log(a, b, rest);
+		</script>
+	</body>
+</html>

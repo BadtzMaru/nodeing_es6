@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 注意1: Symbol 里面传入的字符串没有其他的意义,只是用来描述Symbol的
+			console.log(Symbol('nodeing') === Symbol('nodeing'));
+
+			// 注意2: 不能使用new 关键字调用
+			// let name = new Symbol('nodeing'); // 报错 Symbol is not a constructor
+
+			// 注意3: Symbol类型转化的时候不能转化成数字
+			console.log(String(Symbol('nodeing')));
+			console.log(Boolean(Symbol('nodeing')));
+			// console.log(Number(Symbol('1'))); // 报错 Cannot convert a Symbol value to a number
+
+			// 注意4: 不能做任何运算
+			// console.log(Symbol('111') + '2'); // 报错 Cannot convert a Symbol value to a string
+
+			// 注意5: 如果把Symbol用于对象的属性和方法,一定要用一个变量来存,否则定义的这个对象的属性和方法就没有办法调用
+			let name = Symbol('name');
+			let obj = {
+				[name]: 'xiaoqiang',
+			};
+			console.log(obj[name]);
+
+			// 注意6: for in的时候没有办法遍历出来
+			let obj2 = {
+				a: 1,
+				b: 2,
+				[Symbol('name')]: 'xiaoqiang',
+				[Symbol('age')]: 18,
+			};
+			for (let attr in obj2) {
+				console.log(attr);
+			}
+
+			// Object.getOwnPropertySymbols()   返回一个数组
+			console.log(Object.getOwnPropertySymbols(obj2));
+		</script>
+	</body>
+</html>

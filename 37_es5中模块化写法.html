@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 1. 匿名函数自执行
+			// (function () {
+			// 	console.log(1);
+			// })();
+
+			// 2. 核心: 一个文件就是一个模块
+			var module1 = (function () {
+				// 私有变量
+				var _name = 'xiaoqiang';
+				function fn1() {
+					console.log(1);
+				}
+				function fn2() {
+					console.log(_name);
+				}
+				return {
+					fn1,
+					fn2,
+				};
+			})();
+			console.log(module1);
+			module1.fn1();
+			module1.fn2();
+		</script>
+	</body>
+</html>
